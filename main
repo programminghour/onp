@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include "stos.h"
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+    string e;
+    float x;
+
+    stos st;
+
+    while(e != "=")
+    {
+        cin >> e;
+        stringstream ss;
+        ss << e;
+        if(ss >> x)
+        {
+            st.dodaj(x);
+            //cout <<"LICZBA\n";
+        }
+        else{
+            //cout << "NIEJEST LICZBA\n";
+          if (e != "=")
+          {
+
+
+            float v2 = st.pobierz();
+            st.usun();
+            float v1 = st.pobierz();
+            st.usun();
+            if(e == "+")
+                st.dodaj(v2 + v1);
+            else if(e == "-")
+                st.dodaj(v2 - v1);
+            else if(e == "*")
+                st.dodaj(v2 * v1);
+            else if(e == "/")
+                st.dodaj(v2 / v1);
+        }}
+    }
+     st.wypisz();
+
+    return 0;
+}
